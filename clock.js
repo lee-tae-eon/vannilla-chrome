@@ -1,6 +1,7 @@
 const clockContainer = document.querySelector(".js-clock"),
     clockTitle = clockContainer.querySelector("h1");
 
+// 시계만들기 함수
 function getTime() {
     const date = new Date();
     const minutes = date.getMinutes();
