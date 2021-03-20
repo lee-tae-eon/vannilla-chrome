@@ -1,4 +1,4 @@
-const weather = document.querySelector(".js-weather");
+const weather = document.querySelector(".js-weather .weather_text");
 
 const API_KEY = "8479ef5fb8632f93835f1868e570e511";
 
@@ -13,9 +13,7 @@ function getWeather(lat, lng) {
             console.log(json)
             const temperature = json.main.temp;
             const place = json.name;
-            const maxTemp = json.main.temp_max;
-            const minTemp = json.main.temp_min;
-            weather.innerText = `${temperature} @ ${place} @ ${maxTemp} @ ${minTemp}`
+            weather.innerHTML = `${Math.floor(temperature)}º @ ${place}`
         })
 }
 
