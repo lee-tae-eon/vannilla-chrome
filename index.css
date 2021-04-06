@@ -15,8 +15,7 @@ body {
 }
 
 .js-toDoForm:focus-within input {
-  border-bottom: 0.5px solid rgb(161, 56, 56);
-  opacity: 0.5;
+  border-bottom: 0.5px solid rgba(161, 56, 56, 0.3);
 }
 
 input {
