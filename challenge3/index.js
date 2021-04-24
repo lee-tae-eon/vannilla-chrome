@@ -1,24 +1,22 @@
-const clockContainer = document.querySelector(".js-clock"),
-  clockTitle = clockContainer.querySelector("h1");
-// You're gonna need this
+const clockTitle = document.querySelector(".js-clock");
+
 function getTime() {
-  // Don't delete this.
-  const xmasDay = new Date("2021-12-24:00:00:00+0900");
-  const currentDay = new Date();
-  const decimalDate = xmasDay.getTime() - currentDay.getTime();
-  const resultDay = Math.floor(decimalDate / (1000 * 60 * 60 * 24));
-  const resultHour = Math.floor(
-    (decimalDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  );
-  const resultMinute = Math.floor(
-    (decimalDate % (1000 * 60 * 60)) / (1000 * 60)
-  );
-  const resultSecond = Math.floor((decimalDate % (1000 * 60)) / 1000);
-  clockTitle.innerText = `${resultDay}d ${
-    resultHour < 10 ? `0${resultHour}` : resultHour
-  }h ${resultMinute < 10 ? `0${resultMinute}` : resultMinute}m ${
-    resultSecond < 10 ? `0${resultSecond}` : resultSecond
-  }s`;
+  const xmasDay = new Date(`${new Date().getFullYear()}-12-24:00:00:00+0900`);
+  const now = new Date();
+  // This is in milisecondsx
+  const difference = new Date(xmasDay - now);
+  const secondsInMs = Math.floor(difference / 1000);
+  const minutesInMs = Math.floor(secondsInMs / 60);
+  const hoursInMs = Math.floor(minutesInMs / 60);
+  const days = Math.floor(hoursInMs / 24);
+  const seconds = secondsInMs % 60;
+  const minutes = minutesInMs % 60;
+  const hours = hoursInMs % 24;
+  const daysStr = `${days < 10 ? `0${days}` : days}d`;
+  const hoursStr = `${hours < 10 ? `0${hours}` : hours}h`;
+  const minutesStr = `${minutes < 10 ? `0${minutes}` : minutes}m `;
+  const secondsStr = `${seconds < 10 ? `0${seconds}` : seconds}s`;
+  clockTitle.innerHTML = `${daysStr} ${hoursStr} ${minutesStr} ${secondsStr}`;
 }
 
 function init() {
