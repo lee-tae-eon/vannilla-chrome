@@ -91,7 +91,7 @@ button {
   position: relative;
   justify-content: center;
   align-items: center;
-  font-size: 5em;
+  font-size: 5vmax;
 }
 .weather {
   position: absolute;
