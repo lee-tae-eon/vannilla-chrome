@@ -6,10 +6,12 @@ function getTime() {
   // This is in milisecondsx
   const difference = new Date(xmasDay - now);
   const secondsInMs = Math.floor(difference / 1000);
+  // console.log(secondsInMs);
   const minutesInMs = Math.floor(secondsInMs / 60);
   const hoursInMs = Math.floor(minutesInMs / 60);
   const days = Math.floor(hoursInMs / 24);
   const seconds = secondsInMs % 60;
+  // console.log(seconds);
   const minutes = minutesInMs % 60;
   const hours = hoursInMs % 24;
   const daysStr = `${days < 10 ? `0${days}` : days}d`;
