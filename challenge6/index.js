@@ -20,13 +20,10 @@ const handleButton = () => {
   const lostText = "You Lost";
   if (choseNumber === randNumber) {
     resultText.innerHTML = winText;
-    if (resultText.outerText == "You Win") {
-      resultText.style.color = "red";
-    } else {
-      resultText.style.color = "black";
-    }
+    resultText.style.color = "red";
   } else {
     resultText.innerHTML = lostText;
+    resultText.style.color = "black";
   }
 };
 
